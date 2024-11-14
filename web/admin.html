@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div id="admin">
+        <h2>Admin Panel - Quản lý sản phẩm</h2>
+        <form @submit.prevent="addProduct">
+            <input v-model="newProduct.name" placeholder="Tên sản phẩm">
+            <input v-model="newProduct.price" type="number" step="0.01" placeholder="Giá">
+            <button type="submit">Thêm sản phẩm</button>
+        </form>
+        
+        <div v-for="product in products" :key="product.id" class="product">
+            <input v-model="product.name">
+            <input v-model="product.price" type="number" step="0.01">
+            <button @click="updateProduct(product)">Cập nhật</button>
+            <button @click="deleteProduct(product.id)">Xóa</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="/static/js/app.js"></script>
+    
+    
+</body>
+</html>

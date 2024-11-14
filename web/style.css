@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.product input {
+    margin-right: 5px;
+    flex: 1;
+}
+
+button {
+    margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+    .product {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    button {
+        width: 100%;
+        margin-top: 5px;
+    }
+}
