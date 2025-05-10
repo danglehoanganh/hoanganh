@@ -26,7 +26,7 @@ Chào mừng bạn đến với trang tổng hợp các dự án cá nhân mà t
 **Role:** Developer (Team 2 người)
 
 ### ✅ Tính năng:
-- Ứng dụng quản lý sinh viên, tối ưu hóa tốc độ truy xuất dữ liệu
+- Ứng dụng biểu đồ quản lý sinh viên, tối ưu hóa tốc độ truy xuất dữ liệu
 - Thiết kế database tối ưu cho việc truy vấn
 - Giao diện hiển thị dữ liệu rõ ràng, dễ theo dõi
 
