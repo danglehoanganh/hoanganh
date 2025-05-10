@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống quản lý sinh viên</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🎓 Student Dashboard</div>
+            <ul class="nav-links">
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#chart">Biểu đồ</a></li>
+                <li><a href="#studentList">Sinh viên</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <h1>Hệ thống quản lý sinh viên</h1>
+
+        <div class="buttons">
+            <button onclick="loadChart('major')">1. Phân bố ngành học</button>
+            <button onclick="loadChart('performance')">2. Thành tích học tập</button>
+            <button onclick="loadChart('region')">3. Phân bố khu vực</button>
+            <button onclick="loadChart('activities')">4. Hoạt động ngoại khóa</button>
+            <button onclick="loadChart('scholarship')">5. Học bổng</button>
+        </div>
+
+        <div id="chart">
+            <p>Chọn biểu đồ để hiển thị.</p>
+        </div>
+
+        <h2>📋 Danh sách sinh viên từ MongoDB</h2>
+        <ul id="studentList"></ul>
+    </div>
+
+    <script>
+        function loadChart(type) {
+            const chart = document.getElementById('chart');
+            chart.innerHTML = `<p>Đang tải...</p><img src="/generate/${type}" onload="this.previousSibling.remove()" alt="Biểu đồ">`;
+        }
+
+        async function loadStudents() {
+            const res = await fetch("/students");
+            const students = await res.json();
+            const list = document.getElementById("studentList");
+            list.innerHTML = "";
+            students.forEach(s => {
+                const li = document.createElement("li");
+                li.textContent = `${s.name} | Ngành: ${s.major} | GPA: ${s.gpa}`;
+                list.appendChild(li);
+            });
+        }
+
+        loadStudents();
+    </script>
+</body>
+</html>
