@@ -89,6 +89,8 @@ Hệ thống truyền tệp an toàn sử dụng mã hóa đối xứng (DES), m
 │   └── receiver_public.pem
 ├── parts/                 # Chứa các phần của file đã chia và mã hóa
 └── assignment_received.txt # File sau khi nhận và khôi phục
+```bash
+
 
 ⚙️ Cách sử dụng
 1. Cài đặt thư viện
