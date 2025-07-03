@@ -71,7 +71,7 @@ Hệ thống truyền tệp an toàn sử dụng mã hóa đối xứng (DES), m
 ## 🗂 Cấu trúc thư mục
 
 
-.
+---bash
 ├── app.py                 # Flask Web App
 ├── assignment.txt         # File gốc cần truyền (có thể tạo bằng create_assignment.py)
 ├── create_assignment.py   # Tạo file assignment.txt mẫu
