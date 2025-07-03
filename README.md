@@ -73,6 +73,8 @@ Giao diện web dễ sử dụng với Flask
 │   └── receiver_*.pem
 ├── parts/                 # Chứa các phần của file đã chia và mã hóa
 └── assignment_received.txt # File sau khi nhận và khôi phục
+
+
 ⚙️ Hướng dẫn chạy
 1. Cài đặt môi trường
    pip install -r requirements.txt
