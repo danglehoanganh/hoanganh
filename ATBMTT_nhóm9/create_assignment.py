@@ -1,0 +1,21 @@
+content = """
+Assignment: Secure File Transfer System
+
+Objectives:
+1. Encrypt the file using DES.
+2. Sign and share the session key using RSA 1024-bit.
+3. Verify integrity using SHA-512.
+4. Divide the file into 3 parts and package each securely.
+
+Deadline: May 15, 2025
+
+Instructions:
+- Implement sender and receiver.
+- Ensure all steps follow security protocol.
+- Submit both code and final reconstructed file.
+"""
+
+with open("assignment.txt", "w") as f:
+    f.write(content.strip())
+
+print("✅ assignment.txt has been created.")
