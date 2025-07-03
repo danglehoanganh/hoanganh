@@ -89,34 +89,34 @@ Hệ thống truyền tệp an toàn sử dụng mã hóa đối xứng (DES), m
 │   └── receiver_public.pem
 ├── parts/                 # Chứa các phần của file đã chia và mã hóa
 └── assignment_received.txt # File sau khi nhận và khôi phục
-```bash
 
+---
 
 ⚙️ Cách sử dụng
 1. Cài đặt thư viện
 pip install pycryptodome flask
-
+---
 2. Chạy ứng dụng Flask
 python app.py
 Truy cập: http://your_ip
-
+---
 3. Các bước sử dụng trên giao diện
 Generate Keys: Tạo khóa RSA cho sender và receiver
 Create Assignment: Tạo file assignment.txt để truyền
 Encrypt & Split: Mã hóa file, chia thành 3 phần, ký và lưu
 Decrypt & Merge: Kiểm tra chữ ký, giải mã, ghép lại thành assignment_received.txt
-
+---
 📌 Ghi chú kỹ thuật
 DES dùng CBC mode với padding thủ công
 RSA 1024-bit dùng cho cả mã hóa và chữ ký
 SHA-512 dùng để kiểm tra toàn vẹn nội dung từng phần
 Dữ liệu chia 3 phần lưu vào các file .json kèm IV, mã hóa, hash và chữ ký
-
+---
 ✅ Trạng thái
  Xây dựng thành công
  Giao diện Flask hoạt động
  Chưa triển khai kết nối mạng thực (hiện là mô phỏng local)
-
+---
 
 ## 📫 Liên hệ
 - **Email:** [danglehoanganh0223@gmail.com]
