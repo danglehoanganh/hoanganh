@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiện ích Mã hóa</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔐 Tiện ích Mã hóa</h1>
+      <p class="subtitle">Quản lý toàn bộ quy trình: Tạo khóa, mã hóa, chia file và giải mã ngay trên giao diện.</p>
+    </header>
+
+    <section class="status">
+      <h2>Trạng thái hiện tại</h2>
+      <div class="cards">
+        <div class="card {{ 'done' if statuses.keys else 'pending' }}">
+          <span class="icon">🔑</span>
+          <p>{{ 'Khóa RSA sẵn sàng' if statuses.keys else 'Chưa tạo khóa RSA' }}</p>
+        </div>
+        <div class="card {{ 'done' if statuses.assignment else 'pending' }}">
+          <span class="icon">📄</span>
+          <p>{{ 'File bài tập đã tạo' if statuses.assignment else 'Chưa có file bài tập' }}</p>
+        </div>
+        <div class="card {{ 'done' if statuses.parts else 'pending' }}">
+          <span class="icon">🔒</span>
+          <p>{{ 'Đã mã hóa & chia file' if statuses.parts else 'Chưa mã hóa/chia file' }}</p>
+        </div>
+        <div class="card {{ 'done' if statuses.received else 'pending' }}">
+          <span class="icon">📥</span>
+          <p>{{ 'File đã giải mã & ghép' if statuses.received else 'Chưa giải mã/ghép file' }}</p>
+        </div>
+      </div>
+    </section>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for msg in messages %}
+            <p>{{ msg }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <section class="actions">
+      <h2>Thao tác</h2>
+      <form method="post">
+        <button name="action" value="generate_keys">Tạo khóa RSA</button>
+        <button name="action" value="create_assignment">Tạo file bài tập</button>
+        <button name="action" value="encrypt_split">Mã hóa & Chia file</button>
+        <button name="action" value="decrypt_merge">Giải mã & Ghép file</button>
+      </form>
+    </section>
+
+    {% if output %}
+    <section class="output">
+      <h2>Kết quả Console</h2>
+      <pre>{{ output }}</pre>
+    </section>
+    {% endif %}
+
+    {% if file_content %}
+    <section class="file-preview">
+      <h2>Nội dung File gốc (assignment.txt)</h2>
+      <pre>{{ file_content }}</pre>
+    </section>
+    {% endif %}
+
+    {% if received_content %}
+    <section class="file-preview">
+      <h2>Nội dung File nhận được (assignment_received.txt)</h2>
+      <pre>{{ received_content }}</pre>
+    </section>
+    {% endif %}
+
+    <footer>
+      <p>&copy; 2025 Crypto Utility</p>
+    </footer>
+  </div>
+</body>
+</html>
