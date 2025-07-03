@@ -42,21 +42,35 @@ Tôi đam mê phát triển Frontend và luôn cố gắng nâng cao kỹ năng 
 Hiện tại tôi tiếp tục học hỏi và thực hành với ReactJS và các công nghệ liên quan.
 
 ---
-🔐 Secure File Transfer System
-Một hệ thống truyền tệp an toàn sử dụng các kỹ thuật mã hóa, chữ ký số và xác thực toàn vẹn để bảo vệ dữ liệu trong quá trình gửi và nhận. Ứng dụng có giao diện web đơn giản bằng Flask để thực hiện các bước bảo mật một cách tự động.
+# 🔐 Secure File Transfer System
 
-🚀 Chức năng chính
-Mã hóa nội dung bằng DES (Data Encryption Standard)
+Hệ thống truyền tệp an toàn sử dụng mã hóa đối xứng (DES), mã hóa khóa phiên và chữ ký số bằng RSA, xác minh toàn vẹn với SHA-512. Ứng dụng này có giao diện web đơn giản bằng Flask để thao tác gửi – nhận tệp bảo mật nhanh chóng.
 
-Chia nhỏ tệp thành 3 phần và bảo vệ từng phần riêng biệt
+---
 
-Tạo và sử dụng RSA 1024-bit để mã hóa khóa phiên và chữ ký số
+## 📌 Mục tiêu
 
-Xác thực toàn vẹn với SHA-512
+- ✅ Mã hóa file bằng DES
+- ✅ Chia file thành 3 phần, mỗi phần được mã hóa, ký và lưu riêng
+- ✅ Sử dụng RSA 1024-bit để mã hóa khóa phiên và ký dữ liệu
+- ✅ Kiểm tra toàn vẹn bằng SHA-512
+- ✅ Tái hợp file sau khi xác minh chữ ký và nội dung
 
-Giao diện web dễ sử dụng với Flask
+---
 
-🗂 Cấu trúc thư mục
+## 🖼 Giao diện Web
+
+Ứng dụng Flask có giao diện đơn giản gồm các nút để:
+- Generate Keys
+- Create Assignment
+- Encrypt & Split
+- Decrypt & Merge
+
+---
+
+## 🗂 Cấu trúc thư mục
+
+```bash
 .
 ├── app.py                 # Flask Web App
 ├── assignment.txt         # File gốc cần truyền (có thể tạo bằng create_assignment.py)
@@ -69,43 +83,38 @@ Giao diện web dễ sử dụng với Flask
 ├── templates/
 │   └── index.html         # Giao diện chính (yêu cầu thêm)
 ├── keys/                  # Chứa khóa RSA
-│   ├── sender_*.pem
-│   └── receiver_*.pem
+│   ├── sender_private.pem
+│   ├── sender_public.pem
+│   ├── receiver_private.pem
+│   └── receiver_public.pem
 ├── parts/                 # Chứa các phần của file đã chia và mã hóa
 └── assignment_received.txt # File sau khi nhận và khôi phục
 
+⚙️ Cách sử dụng
+1. Cài đặt thư viện
+pip install pycryptodome flask
 
-⚙️ Hướng dẫn chạy
-1. Cài đặt môi trường
-   pip install -r requirements.txt
-Yêu cầu chính:
-pycryptodome
-flask
+2. Chạy ứng dụng Flask
+python app.py
+Truy cập: http://your_ip
 
-2. Khởi động hệ thống
-   python app.py
-Sau đó truy cập trình duyệt tại http://your_ip/
-3. Các thao tác chính
-Generate Keys: Sinh khóa RSA cho sender và receiver
-Create Assignment: Tạo file assignment.txt gốc
-Encrypt & Split: Mã hóa và chia nhỏ file thành 3 phần
-Decrypt & Merge: Kiểm tra, xác minh và hợp nhất lại file
+3. Các bước sử dụng trên giao diện
+Generate Keys: Tạo khóa RSA cho sender và receiver
+Create Assignment: Tạo file assignment.txt để truyền
+Encrypt & Split: Mã hóa file, chia thành 3 phần, ký và lưu
+Decrypt & Merge: Kiểm tra chữ ký, giải mã, ghép lại thành assignment_received.txt
 
-📄 Nội dung bài tập (assignment.txt)
-Assignment: Secure File Transfer System
+📌 Ghi chú kỹ thuật
+DES dùng CBC mode với padding thủ công
+RSA 1024-bit dùng cho cả mã hóa và chữ ký
+SHA-512 dùng để kiểm tra toàn vẹn nội dung từng phần
+Dữ liệu chia 3 phần lưu vào các file .json kèm IV, mã hóa, hash và chữ ký
 
-Objectives:
-1. Encrypt the file using DES.
-2. Sign and share the session key using RSA 1024-bit.
-3. Verify integrity using SHA-512.
-4. Divide the file into 3 parts and package each securely.
+✅ Trạng thái
+ Xây dựng thành công
+ Giao diện Flask hoạt động
+ Chưa triển khai kết nối mạng thực (hiện là mô phỏng local)
 
-Deadline: May 15, 2025
-
-📌 Ghi chú
-Dự án sử dụng mã hóa đối xứng (DES) và bất đối xứng (RSA) kết hợp.
-Quá trình ký số và xác minh chữ ký đảm bảo dữ liệu không bị chỉnh sửa.
-Phần mềm mô phỏng việc gửi và nhận dữ liệu trong môi trường giả lập (offline).
 
 ## 📫 Liên hệ
 - **Email:** [danglehoanganh0223@gmail.com]
