@@ -1,0 +1,3 @@
+- [ ] Sửa đổi my-app/components/Chatbot.js: Loại bỏ vị trí cố định và điều chỉnh kích thước
+- [ ] Sửa đổi my-app/src/app/profile/page.js: Import Chatbot và thêm vào dưới thông tin tài khoản
+- [ ] Kiểm tra tích hợp chatbot trong trang Profile
