@@ -267,7 +267,7 @@ README.md
 - chỉnh sửa bài tập,
 - xem thống kê trực quan bằng biểu đồ.
 
-(Thêm các project khác của bạn vào phần này.)
+
 
 ---
 
