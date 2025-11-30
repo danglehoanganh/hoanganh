@@ -118,7 +118,7 @@ Dữ liệu chia 3 phần lưu vào các file .json kèm IV, mã hóa, hash và 
  Chưa triển khai kết nối mạng thực (hiện là mô phỏng local)
 ---
 
-# Hệ Thống Quản Lý Lịch Tập Cá Nhân Hóa
+# Hệ Thống Quản Lý Lịch Tập Cá Nhân Hóa (Personalized Workout Schedule Management System)
 **Next.js – Node.js/Express – MongoDB – Theo dõi tiến trình tập luyện**
 
 ## 1. Giới thiệu
