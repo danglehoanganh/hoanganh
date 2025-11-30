@@ -123,7 +123,7 @@ Dữ liệu chia 3 phần lưu vào các file .json kèm IV, mã hóa, hash và 
 
 ## 1. Giới thiệu
 
-Dự án này được xây dựng trong môn *Chuyển đổi số*, hướng đến việc hỗ trợ người dùng tạo lịch tập cá nhân hóa dựa trên:
+Dự án thực tế của em, hướng đến việc hỗ trợ người dùng tạo lịch tập cá nhân hóa dựa trên:
 - Mức độ tập luyện,
 - Mục tiêu (giảm cân, tăng cơ, duy trì),
 - Cường độ vận động,
